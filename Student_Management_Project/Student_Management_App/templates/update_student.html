@@ -2,19 +2,25 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/addStudent.css' %}">
-<form action="" method="POST" class="w-50 mx-auto mt-5 p-5 bg-info sm-form">
+<form action="" method="POST" class="w-50 mx-auto my-5 p-5 bg-info sm-form">
     {% csrf_token %}
     <div class="mb-3">
         <label for="sname" class="form-label">Student Name: </label><br>
-        <input type="text" class="form-control mb-3" name="sname" id="sname" value="{{student.student_name}}">
+        <input type="text" class="form-control mb-3" name="sname" id="sname" value="{{student.student_name}}" required>
+        {% if errors.name %}
+        <p class="text-danger">{{errors.name}}</p>
+        {% endif %}
     </div>
     <div class="mb-3">
         <label for="semail" class="form-label">Student Email</label><br>
         <input type="email" class="form-control mb-3" name="semail" id="semail" value="{{student.student_email}}">
+        {% if errors.email %}
+        <p class="text-danger">{{errors.email}}</p>
+        {% endif %}
     </div>
     <div class="mb-3">
         <label for="course" class="form-label">Select Course</label><br>
-        <select class="form-select mb-3" aria-label="Default select example" id="course" name="scourse">
+        <select class="form-select mb-3" aria-label="Default select example" id="course" name="scourse" required>
             <option selected value="{{student.course}}">{{student.course}}</option>
             <option value="Python Full Stack">Python Full Stack</option>
             <option value="Java Full Stack">Java Full Stack</option>
@@ -26,11 +32,21 @@
     </div>
     <div class="mb-3">
         <label for="sage" class="form-label">Student Age</label><br>
-        <input type="number" class="form-control mb-3" name="sage" id="sname" value="{{student.student_age}}">
+        <input type="number" class="form-control mb-3" name="sage" id="sname" value="{{student.student_age}}" required>
+        {% if errors.age %}
+        <p class="text-danger">{{errors.age}}</p>
+        {% endif %}
     </div>
     <div class="mb-3">
         <label for="scity" class="form-label">Student City</label><br>
-        <input type="text" class="form-control mb-3" name="scity" id="sname" value="{{student.city}}">
+        <input type="text" class="form-control mb-3" name="scity" id="sname" value="{{student.city}}" required>
+    </div>
+    <div class="mb-3">
+        <label for="sphone" class="form-label">Student Phone</label><br>
+        <input type="text" class="form-control mb-3" name="sphone" id="sphone" value="{{student.phone}}" required>
+        {% if errors.phone %}
+        <p class="text-danger">{{errors.phone}}</p>
+        {% endif %}
     </div>
     <button type="submit" class="btn btn-success">UPDATE STUDENT</button>
 </form>

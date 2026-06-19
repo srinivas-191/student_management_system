@@ -14,6 +14,7 @@
             <th>COURSE</th>
             <th>AGE</th>
             <th>CITY</th>
+            <th>PHONE</th>
             <th>ACTION</th>
         </tr>
         {% for student in students %}
@@ -24,6 +25,7 @@
             <td>{{student.course}}</td>
             <td>{{student.student_age}}</td>
             <td>{{student.city}}</td>
+            <td>{{student.phone}}</td>
             <td>
                 <a href="{% url 'update' student.id %}" type="submit" class="btn btn-warning px-3 py-2 rounded-4 me-1 mt-1">EDIT</a>
                 <a href="{% url 'delete' student.id %}" type="submit" class="btn btn-danger px-3 py-2 rounded-4 me-1 mt-2">DELETE</a>
@@ -32,7 +34,7 @@
         {% empty %}
 
         <tr>
-            <td colspan="7" class="text-center">No Students Found</td>
+            <td colspan="8" class="text-center">No Students Found</td>
         </tr>
         {% endfor %}
     </table>
