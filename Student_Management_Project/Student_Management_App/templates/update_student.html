@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/addStudent.css' %}">
+<form action="" method="POST" class="w-50 mx-auto mt-5 p-5 bg-info sm-form">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="sname" class="form-label">Student Name: </label><br>
+        <input type="text" class="form-control mb-3" name="sname" id="sname" value="{{student.student_name}}">
+    </div>
+    <div class="mb-3">
+        <label for="semail" class="form-label">Student Email</label><br>
+        <input type="email" class="form-control mb-3" name="semail" id="semail" value="{{student.student_email}}">
+    </div>
+    <div class="mb-3">
+        <label for="course" class="form-label">Select Course</label><br>
+        <select class="form-select mb-3" aria-label="Default select example" id="course" name="scourse">
+            <option selected value="{{student.course}}">{{student.course}}</option>
+            <option value="Python Full Stack">Python Full Stack</option>
+            <option value="Java Full Stack">Java Full Stack</option>
+            <option value="Data Science and AI Ml">Data Science and AI Ml</option>
+            <option value="Cybersecurity">Cybersecurity</option>
+            <option value="Devops">Devops</option>
+            <option value="AWS">AWS</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="sage" class="form-label">Student Age</label><br>
+        <input type="number" class="form-control mb-3" name="sage" id="sname" value="{{student.student_age}}">
+    </div>
+    <div class="mb-3">
+        <label for="scity" class="form-label">Student City</label><br>
+        <input type="text" class="form-control mb-3" name="scity" id="sname" value="{{student.city}}">
+    </div>
+    <button type="submit" class="btn btn-success">UPDATE STUDENT</button>
+</form>
+{% endblock %}

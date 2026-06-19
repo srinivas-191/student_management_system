@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<div class="header text-center w-75 mx-auto mt-5 rounded-pill">
+    <span class="sms">Student Management System</span>
+</div>
+<div class="table-responsive mt-5">
+    <table class="mx-auto">
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>COURSE</th>
+            <th>AGE</th>
+            <th>CITY</th>
+            <th>ACTION</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{student.id}}</td>
+            <td>{{student.student_name}}</td>
+            <td>{{student.student_email}}</td>
+            <td>{{student.course}}</td>
+            <td>{{student.student_age}}</td>
+            <td>{{student.city}}</td>
+            <td>
+                <a href="{% url 'update' student.id %}" type="submit" class="btn btn-warning px-3 py-2 rounded-4 me-1 mt-1">EDIT</a>
+                <a href="{% url 'delete' student.id %}" type="submit" class="btn btn-danger px-3 py-2 rounded-4 me-1 mt-2">DELETE</a>
+            </td>
+        </tr>
+        {% empty %}
+
+        <tr>
+            <td colspan="7" class="text-center">No Students Found</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

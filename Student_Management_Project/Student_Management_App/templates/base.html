@@ -1,0 +1,44 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="py-4">
+        <div class="d-none d-md-block">
+            <ul class="d-flex justify-content-around list-unstyled">
+                <div class="d-flex">   
+                    <li>
+                        <li>
+                            <a href="{% url 'home' %}"
+                            class="fs-4 text-decoration-none {% if request.path == '/' %}text-decoration-underline{% endif %}">
+                            HOME
+                            </a>
+                        </li>
+                    </li>
+                </div>
+                <li><a href="{% url 'add' %}" class="fs-4 text-decoration-none text-decoration-none {% if request.path == '/add-student/' %}text-decoration-underline{% endif %}">ADD STUDENT</a></li>
+            </ul>
+        </div>
+        <div class="d-block d-md-none">
+            <ul class="list-unstyled text-center">
+                <li><a href="{% url 'home' %}" class="fs-4 text-decoration-none text-decoration-none {% if request.path == '/' %}text-decoration-underline{% endif %}">HOME</a></li>
+                <li><a href="{% url 'add' %}" class="fs-4 text-decoration-none text-decoration-none {% if request.path == '/add-student/' %}text-decoration-underline{% endif %}">ADD STUDENT</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+    {% block content %}
+    {% endblock %}
+    </main>
+    <footer class="py-3">
+        <p class="text-center">&copy; Student Management System | 2026 rights reserved</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>

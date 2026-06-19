@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+nav{
+    background-color: #f6f2f2;
+}
+footer{
+    margin-top: auto;
+    background-color: #f6f2f2;
+}
+footer p{
+    color: #3605f8;
+}
+a:active{
+    text-decoration: underline;
+}
